@@ -1,5 +1,6 @@
 예상 디렉토리 구조
 
+```
 jia-app/ (Monorepo)
 ├── apps/
 │   ├── jia-web/          # Next.js (프론트엔드)
@@ -12,3 +13,4 @@ jia-app/ (Monorepo)
 │   └── common-utils/     # 공통 유틸리티 함수
 ├── package.json
 └── turborepo.json        # 빌드 최적화 설정
+```
