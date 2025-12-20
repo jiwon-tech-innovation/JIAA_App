@@ -1,16 +1,28 @@
 예상 디렉토리 구조
 
 ```
-jia-app/ (Monorepo)
-├── apps/
-│   ├── jia-web/          # Next.js (프론트엔드)
-│   ├── jia-admin/        # 관리자 대시보드 (React)
-│   ├── jia-main-api/     # 메인 백엔드 (Nest.js / Spring Boot)
-│   └── jia-ai-worker/    # K8s 감시 및 AI 처리 서버
-├── libs/
-│   ├── shared-types/     # 프론트와 백엔드가 같이 쓰는 타입/DTO
-│   ├── ui-components/    # 프론트엔드 공통 UI 컴포넌트
-│   └── common-utils/     # 공통 유틸리티 함수
-├── package.json
-└── turborepo.json        # 빌드 최적화 설정
+JIAA_Project/                # 프로젝트 최상위 폴더
+├── client_flutter/              # [Flutter] 데스크톱 애플리케이션
+│   ├── lib/                     # Dart 소스 코드
+│   ├── macos/                   # macOS 네이티브 코드 (Swift/Live2D SDK)
+│   ├── windows/                 # Windows 네이티브 코드 (C++/Win32 API)
+│   └── assets/                  # Live2D 모델 및 이미지 리소스
+├── server_spring/               # [Spring Boot] 메인 백엔드 서버
+│   ├── src/                     # Java 소스 코드
+│   ├── build.gradle             # 빌드 설정
+│   └── Dockerfile               # 스프링 서버 이미지 빌드 파일
+├── server_fastapi/              # [FastAPI] AI/음성 처리 서버
+│   ├── app/                     # Python 소스 코드 (Whisper, TTS 로직)
+│   ├── requirements.txt         # 파이썬 라이브러리 목록
+│   └── Dockerfile               # AI 서버 이미지 빌드 파일
+├── infra/                       # [Infrastructure] 인프라 및 배포 설정
+│   ├── terraform/               # AWS 리소스 생성 코드 (IaC)
+│   ├── helm/                    # K8S 배포 패키지 (Spring/FastAPI용)
+│   │   ├── spring-chart/
+│   │   └── fastapi-chart/
+│   └── argocd/                  # ArgoCD Application 설정 파일 (YAML)
+├── cicd/                        # [CI/CD] 자동화 스크립트
+│   ├── Jenkinsfile              # 젠킨스 파이프라인 대본
+│   └── scripts/                 # 배포 자동화 보조 쉘 스크립트
+└── README.md                    # 프로젝트 문서 및 기획서
 ```
